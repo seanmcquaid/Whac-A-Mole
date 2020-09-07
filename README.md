@@ -6,7 +6,7 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 
 ### Front End
 
-1. React
+1. React + TypeScript
 2. Styled Components
 3. Prop Types
 4. Axios
@@ -17,15 +17,35 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 
 1. Java / SpringBoot
 
-## Game Info
+## Front End Pages
 
-### Rules
+### Home Page
 
-1. When you hit start, the timer starts
-2. Every time you hit a mole, another will appear
-3. The game ends when the user hits 15 moles
+#### Requirements
 
-### Game States and Features
+1. Game is in paused state
+2. Can click start button and start the game
+3. When you hit start, the timer starts
+4. Every time you hit a mole, another will appear
+5. The game ends when the user hits 15 moles
+6. If the user is in the top 10 times after completing their round, then they get prompted to enter their user name
 
-1. Leaderboard displays top 10 times
-2. If the user is in the top 10 times after completing their round, then they get prompted to enter their user name
+### Leaderboard Page
+
+#### Requirements
+
+1. Displays the top 10 times
+
+## Back End Routes
+
+### GET - /leaderboard
+
+Should return top 10 times
+
+### POST - /addTime
+
+Allows users
+
+### GET - /checkTime
+
+Checks if time is in the top 10 times
