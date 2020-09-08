@@ -23,12 +23,11 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 
 #### Requirements
 
-1. Game is in paused state
-2. Can click start button and start the game
-3. When you hit start, the timer starts
-4. Every time you hit a mole, another will appear
-5. The game ends when the user hits 15 moles
-6. If the user is in the top 10 times after completing their round, then they get prompted to enter their user name
+1. Can click start button and start the game
+2. When you hit start, the timer starts
+3. Every time you hit a mole, another will appear
+4. The game ends when the user hits 15 moles
+5. If the user is in the top 10 times after completing their round, then they get prompted to enter their user name
 
 ### Leaderboard Page
 
