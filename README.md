@@ -19,6 +19,11 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 ### Back End
 
 1. Java / SpringBoot
+2. Jdbc
+3. Flyway
+4. PostgreSQL
+5. JUnit
+6. Serenity BDD ? - Will look into whether I want to use this or not for integration testing
 
 ## Front End Pages
 
