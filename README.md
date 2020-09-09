@@ -15,6 +15,10 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 7. React Testing Library
 8. Jest
 9. Cypress
+10. React Router Dom
+11. React Redux
+12. Reselect
+13. Formik
 
 ### Back End
 
