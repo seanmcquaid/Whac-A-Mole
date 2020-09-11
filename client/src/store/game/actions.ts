@@ -8,3 +8,10 @@ export const hitMole: React.Dispatch<GameActionTypes> = () => (
     type: GameActionTypes.hitMole,
   });
 };
+
+export const startGame = () => (dispatch: typeof store.dispatch) => {
+  console.log('start game');
+  return dispatch({
+    type: GameActionTypes.startGame,
+  });
+};
