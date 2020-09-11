@@ -14,7 +14,7 @@ const Game = () => {
 
   const startGameButtonOnClick = useCallback(() => {
     dispatch(startGame());
-  }, []);
+  }, [dispatch]);
 
   return (
     <PageContainer>
@@ -22,7 +22,7 @@ const Game = () => {
         <H1>Whac-A-Mole</H1>
       </Header>
       <MainContent>
-        {gameStarted ? (
+        {!gameStarted ? (
           <>
             <P>Press Start to Begin the Game</P>
             <Button onClick={startGameButtonOnClick} name="Start" />
@@ -44,6 +44,11 @@ const PageContainer = styled.div`
 
 const Header = styled.header``;
 
-const MainContent = styled.main``;
+const MainContent = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default Game;
