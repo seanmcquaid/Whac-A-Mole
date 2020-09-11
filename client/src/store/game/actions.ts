@@ -1,8 +1,10 @@
 import store from '../index';
-import { HIT_MOLE } from './actionTypes';
+import GameActionTypes from './actionTypes';
 
-export const hitMole = () => (dispatch: typeof store.dispatch) => {
+export const hitMole: React.Dispatch<GameActionTypes> = () => (
+  dispatch: typeof store.dispatch
+) => {
   return dispatch({
-    type: HIT_MOLE,
+    type: GameActionTypes.hitMole,
   });
 };

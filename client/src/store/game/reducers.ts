@@ -1,3 +1,5 @@
+import GameActionTypes from './actionTypes';
+
 export type gameState = {
   molesHit: number;
   molesLeft: number;
@@ -12,7 +14,7 @@ const gameState: gameState = {
   gameOver: false,
 };
 
-type Action = { type: 'HIT_MOLE' };
+type Action = { type: GameActionTypes.hitMole };
 
 const gameReducer = (state = gameState, action: Action) => {
   switch (action.type) {

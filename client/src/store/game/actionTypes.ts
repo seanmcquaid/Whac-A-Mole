@@ -1,1 +1,5 @@
-export const HIT_MOLE = 'HIT_MOLE';
+enum GameActionTypes {
+  hitMole = 'HIT_MOLE',
+}
+
+export default GameActionTypes;
