@@ -14,3 +14,15 @@ export const startGame = () => (dispatch: typeof store.dispatch) => {
     type: GameActionTypes.startGame,
   });
 };
+
+export const incrementTimer = () => (dispatch: typeof store.dispatch) => {
+  return dispatch({
+    type: GameActionTypes.incrementTimer,
+  });
+};
+
+export const endGame = () => (dispatch: typeof store.dispatch) => {
+  return dispatch({
+    type: GameActionTypes.endGame,
+  });
+};

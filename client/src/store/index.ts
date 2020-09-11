@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import gameReducer, { gameState } from './game/reducers';
+import gameReducer, { GameState } from './game/reducers';
 
 export type globalState = {
-  game: gameState;
+  game: GameState;
 };
 
 const rootReducer = combineReducers({ game: gameReducer });

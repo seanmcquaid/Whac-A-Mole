@@ -1,22 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { endGame, incrementTimer } from '../../store/game/actions';
+import {
+  gameStartedSelector,
+  molesLeftSelector,
+} from '../../store/game/selectors';
 
 const GameBoard = () => {
+  const molesLeft = useSelector(molesLeftSelector);
+  const gameStarted = useSelector(gameStartedSelector);
   const dispatch = useDispatch();
-  const [timeTotal, setTimeTotal] = useState(0);
-
-  console.log(timeTotal);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeTotal((time) => time + 1000);
-    }, 1000);
+    if (molesLeft !== 0) {
+      const timer = setInterval(() => {
+        dispatch(incrementTimer());
+      }, 1000);
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+      return () => {
+        clearInterval(timer);
+      };
+    }
+
+    dispatch(endGame());
+  }, [dispatch, molesLeft]);
 
   return <GameContainer></GameContainer>;
 };
