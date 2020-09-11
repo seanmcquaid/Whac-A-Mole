@@ -1,10 +1,12 @@
 package com.wackamole.api.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Person {
     private final String name;
-    private final Score score;
+    private final int score;
 
-    public Person(String name, Score score) {
+    public Person(@JsonProperty("name") String name, @JsonProperty("score") int score) {
         this.name = name;
         this.score = score;
     }
@@ -13,7 +15,7 @@ public class Person {
         return name;
     }
 
-    public Score getScore() {
+    public int getScore() {
         return score;
     }
 }
