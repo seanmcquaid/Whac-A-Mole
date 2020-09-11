@@ -12,7 +12,7 @@ const gameState: gameState = {
   gameOver: false,
 };
 
-type Action = { type: 'MOLE_HIT' };
+type Action = { type: 'HIT_MOLE' };
 
 const gameReducer = (state = gameState, action: Action) => {
   switch (action.type) {
