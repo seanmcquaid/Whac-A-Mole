@@ -11,10 +11,8 @@ const rootReducer = combineReducers({ game: gameReducer });
 const configureStore = (preloadedState: initialState) => {
   const middleware = [thunk];
   const middlewareEnhancer = applyMiddleware(...middleware);
-  const enhancers = [middlewareEnhancer];
-  const composedEnhancers = compose(...enhancers);
 
-  const store = createStore(rootReducer, preloadedState, composedEnhancers);
+  const store = createStore(rootReducer, preloadedState, middlewareEnhancer);
 
   return store;
 };
