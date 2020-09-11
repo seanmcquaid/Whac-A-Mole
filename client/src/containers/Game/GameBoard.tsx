@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { endGame, incrementTimer } from '../../store/game/actions';
 import {
-  gameStartedSelector,
+  gameActiveSelector,
   molesLeftSelector,
 } from '../../store/game/selectors';
 
 const GameBoard = () => {
   const molesLeft = useSelector(molesLeftSelector);
-  const gameStarted = useSelector(gameStartedSelector);
+  const gameActive = useSelector(gameActiveSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,10 +22,14 @@ const GameBoard = () => {
       return () => {
         clearInterval(timer);
       };
+    } else {
+      dispatch(endGame());
     }
-
-    dispatch(endGame());
   }, [dispatch, molesLeft]);
+
+  if (!gameActive) {
+    return <Redirect to="/scoreStatus" />;
+  }
 
   return <GameContainer></GameContainer>;
 };

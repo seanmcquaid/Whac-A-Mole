@@ -8,9 +8,9 @@ export const molesLeftSelector = createSelector(
   gameStateSelector,
   (state: GameState) => state.molesLeft
 );
-export const gameStartedSelector = createSelector(
+export const gameActiveSelector = createSelector(
   gameStateSelector,
-  (state: GameState) => state.gameStarted
+  (state: GameState) => state.gameActive
 );
 
 export const totalTimeSelector = createSelector(

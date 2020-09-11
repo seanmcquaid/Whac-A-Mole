@@ -2,13 +2,13 @@ import GameActionTypes from './actionTypes';
 
 export type GameState = {
   molesLeft: number;
-  gameStarted: boolean;
+  gameActive: boolean;
   totalTime: number;
 };
 
 const initialState: GameState = {
   molesLeft: 15,
-  gameStarted: false,
+  gameActive: false,
   totalTime: 0,
 };
 
@@ -23,7 +23,7 @@ const gameReducer = (state = initialState, action: Action): GameState => {
     case GameActionTypes.startGame:
       return {
         ...state,
-        gameStarted: true,
+        gameActive: true,
       };
 
     case GameActionTypes.incrementTimer:
@@ -34,7 +34,7 @@ const gameReducer = (state = initialState, action: Action): GameState => {
     case GameActionTypes.endGame:
       return {
         ...state,
-        gameStarted: false,
+        gameActive: false,
       };
     default:
       return {

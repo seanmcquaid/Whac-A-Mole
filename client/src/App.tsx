@@ -4,6 +4,7 @@ import Game from './containers/Game';
 import LeaderBoard from './containers/LeaderBoard';
 import { Provider } from 'react-redux';
 import store from './store';
+import ScoreStatus from './containers/ScoreStatus';
 
 const App = () => (
   <Provider store={store}>
@@ -11,6 +12,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Game} />
         <Route exact path="/leaderBoard" component={LeaderBoard} />
+        <Route exact path="/scoreStatus" component={ScoreStatus} />
       </Switch>
     </Router>
   </Provider>
