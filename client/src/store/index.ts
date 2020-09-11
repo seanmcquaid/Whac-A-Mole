@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import gameReducer, { gameState } from './game/reducers';
 
@@ -8,7 +8,7 @@ type initialState = {
 
 const rootReducer = combineReducers({ game: gameReducer });
 
-const configureStore = (preloadedState: initialState) => {
+export const configureStore = (preloadedState?: initialState) => {
   const middleware = [thunk];
   const middlewareEnhancer = applyMiddleware(...middleware);
 
@@ -17,4 +17,6 @@ const configureStore = (preloadedState: initialState) => {
   return store;
 };
 
-export default configureStore;
+const store = configureStore();
+
+export default store;
