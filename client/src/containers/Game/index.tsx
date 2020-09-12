@@ -6,9 +6,9 @@ import H1 from '../../sharedComponents/universal/Typography/H1';
 import P from '../../sharedComponents/universal/Typography/P';
 import { startGame } from '../../store/game/actions';
 import { gameActiveSelector } from '../../store/game/selectors';
-import GameBoard from './GameBoard';
+import MainGame from './MainGame';
 
-const Game = () => {
+const Game: React.FC = () => {
   const gameActive = useSelector(gameActiveSelector);
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const Game = () => {
             <Button onClick={startGameButtonOnClick} name="Start" />
           </>
         ) : (
-          <GameBoard />
+          <MainGame />
         )}
       </MainContent>
     </PageContainer>

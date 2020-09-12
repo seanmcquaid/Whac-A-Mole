@@ -25,7 +25,11 @@ const gameReducer = (state = initialState, action: Action): GameState => {
         ...state,
         gameActive: true,
       };
-
+    case GameActionTypes.hitMole:
+      return {
+        ...state,
+        molesLeft: state.molesLeft - 1,
+      };
     case GameActionTypes.incrementTimer:
       return {
         ...state,

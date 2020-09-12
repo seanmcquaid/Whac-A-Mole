@@ -1,39 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import { endGame, incrementTimer } from '../../store/game/actions';
-import {
-  gameActiveSelector,
-  molesLeftSelector,
-} from '../../store/game/selectors';
+import Mole from '../../sharedComponents/app/Game/Mole';
+import { hitMole } from '../../store/game/actions';
+import { molesLeftSelector } from '../../store/game/selectors';
 
-const GameBoard = () => {
-  const molesLeft = useSelector(molesLeftSelector);
-  const gameActive = useSelector(gameActiveSelector);
-  const dispatch = useDispatch();
+interface MoleStatus {
+  isHidden: boolean;
+}
 
-  useEffect(() => {
-    if (molesLeft !== 0) {
-      const timer = setInterval(() => {
-        dispatch(incrementTimer());
-      }, 1000);
+const setMoleVisible = (moles: MoleStatus[], indexOfMoleVisible: number) => {
+  const molesToModify = moles;
 
-      return () => {
-        clearInterval(timer);
-      };
-    } else {
-      dispatch(endGame());
-    }
-  }, [dispatch, molesLeft]);
-
-  if (!gameActive) {
-    return <Redirect to="/scoreStatus" />;
-  }
-
-  return <GameContainer></GameContainer>;
+  molesToModify[indexOfMoleVisible].isHidden = false;
+  return molesToModify;
 };
 
-const GameContainer = styled.div``;
+const GameBoard: React.FC = React.memo(() => {
+  const dispatch = useDispatch();
+  const molesLeft = useSelector(molesLeftSelector);
+
+  const originalMoles: MoleStatus[] = [
+    { isHidden: true },
+    { isHidden: true },
+    { isHidden: true },
+    { isHidden: true },
+    { isHidden: true },
+  ];
+
+  const indexOfMoleVisible = Math.floor(originalMoles.length * Math.random());
+
+  const molesToModify: MoleStatus[] = setMoleVisible(
+    [...originalMoles],
+    indexOfMoleVisible
+  );
+
+  const handleVisibleMoleOnClick = useCallback(() => {
+    dispatch(hitMole());
+  }, [dispatch]);
+
+  if (molesLeft === 0) {
+    return <div>STOP! You're done</div>;
+  }
+
+  return (
+    <MolesList>
+      {molesToModify.map(({ isHidden }, index) => (
+        <Mole
+          isHidden={isHidden}
+          onClick={handleVisibleMoleOnClick}
+          key={index}
+        />
+      ))}
+    </MolesList>
+  );
+});
+
+const MolesList = styled.ol``;
 
 export default GameBoard;
