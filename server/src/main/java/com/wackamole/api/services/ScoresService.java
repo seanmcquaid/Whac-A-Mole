@@ -30,4 +30,8 @@ public class ScoresService {
 
         return isScoreInTopTen.get();
     }
+
+    public List<Score> getTopTenScores(){
+        return scoresDao.getTopTenScores();
+    }
 }
