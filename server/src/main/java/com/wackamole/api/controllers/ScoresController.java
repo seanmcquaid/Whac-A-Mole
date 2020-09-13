@@ -22,9 +22,9 @@ public class ScoresController {
     @PostMapping(path = "/addScore")
     public void addScore(){}
 
-    @GetMapping(path = "/scoreRank")
-    public ResponseEntity<Boolean> scoreRank(@RequestParam("score") int score){
-        boolean isScoreInTopTen = scoresService.checkScoreRank(score);
+    @GetMapping(path = "/checkTime")
+    public ResponseEntity<Boolean> checkTime(@RequestParam("score") int score){
+        boolean isScoreInTopTen = scoresService.isScoreInTopTen(score);
         return new ResponseEntity<>(isScoreInTopTen, HttpStatus.OK);
     }
 }

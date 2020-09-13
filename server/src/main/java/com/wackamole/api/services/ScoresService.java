@@ -17,7 +17,7 @@ public class ScoresService {
         this.scoresDao = scoresDao;
     }
 
-    public boolean checkScoreRank(int time){
+    public boolean isScoreInTopTen(int time){
         List<Score> topTenScores = scoresDao.getTopTenScores();
 
         AtomicBoolean isScoreInTopTen = new AtomicBoolean(false);
