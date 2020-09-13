@@ -34,4 +34,8 @@ public class ScoresService {
     public List<Score> getTopTenScores(){
         return scoresDao.getTopTenScores();
     }
+
+    public Score addScore(Score score){
+        return scoresDao.addScore(score);
+    }
 }

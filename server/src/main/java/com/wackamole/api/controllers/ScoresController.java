@@ -26,7 +26,10 @@ public class ScoresController {
     }
 
     @PostMapping(path = "/addScore")
-    public void addScore(){}
+    public ResponseEntity<Score> addScore(@RequestBody Score score){
+        Score addedScore = scoresService.addScore(score);
+        return new ResponseEntity<>(addedScore, HttpStatus.OK);
+    }
 
     @GetMapping(path = "/checkTime")
     public ResponseEntity<Boolean> checkTime(@RequestParam("score") int score){
