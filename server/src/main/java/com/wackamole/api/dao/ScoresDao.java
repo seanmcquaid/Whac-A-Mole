@@ -17,7 +17,7 @@ public class ScoresDao {
     }
 
     public List<Score> getTopTenScores(){
-        String sql = "SELECT TOP 10 * FROM Scores ORDER BY score ASC";
+        String sql = "SELECT TOP 10 * FROM Scores ORDER BY score ASC;";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             String name = resultSet.getString("name");
             int score = resultSet.getInt("score");
@@ -26,7 +26,7 @@ public class ScoresDao {
     }
 
     public Score addScore(Score score){
-        String sql = "INSERT INTO Scores (name, score) VALUES (?, ?)";
+        String sql = "INSERT INTO Scores (name, score) VALUES (?, ?);";
         return jdbcTemplate.query(sql, new Object[]{score.getName(), score.getScore()}, (resultSet -> {
             return new Score(resultSet.getString("name"), resultSet.getInt("score"));
         }));
