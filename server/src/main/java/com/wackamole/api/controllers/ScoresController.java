@@ -1,11 +1,8 @@
 package com.wackamole.api.controllers;
 
-import com.wackamole.api.models.Person;
 import com.wackamole.api.services.ScoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequestMapping("v1/scores")
 @RestController
