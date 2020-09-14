@@ -34,25 +34,23 @@ const GameBoard: React.FC = React.memo(() => {
     []
   );
 
-  useEffect(() => {
-    makeMoleVisible();
-  }, []);
-
-  const makeMoleVisible = () => {
+  const makeMoleVisible = useCallback(() => {
     const moleToMakeVisible = Math.ceil(Math.random() * 9);
     setMoles((state) => ({
       ...state,
       [moleToMakeVisible]: true,
     }));
-  };
+  }, []);
 
-  console.log(moles);
+  useEffect(() => {
+    makeMoleVisible();
+  }, [makeMoleVisible]);
 
   const handleVisibleMoleOnClick = useCallback(() => {
     dispatch(hitMole());
     setMoles(initialMoles);
     makeMoleVisible();
-  }, [dispatch, initialMoles]);
+  }, [dispatch, initialMoles, makeMoleVisible]);
 
   return (
     <MolesList>
