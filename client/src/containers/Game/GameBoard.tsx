@@ -5,17 +5,6 @@ import Mole from '../../sharedComponents/app/Game/Mole';
 import { hitMole } from '../../store/game/actions';
 import { molesLeftSelector } from '../../store/game/selectors';
 
-interface MoleStatus {
-  isHidden: boolean;
-}
-
-const setMoleVisible = (moles: MoleStatus[], indexOfMoleVisible: number) => {
-  const molesToModify = moles;
-
-  molesToModify[indexOfMoleVisible].isHidden = false;
-  return molesToModify;
-};
-
 const GameBoard: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const [moles, setMoles] = useState({
@@ -29,6 +18,7 @@ const GameBoard: React.FC = React.memo(() => {
     8: false,
     9: false,
   });
+
   const initialMoles = useMemo(
     () => ({
       1: false,
@@ -45,19 +35,32 @@ const GameBoard: React.FC = React.memo(() => {
   );
 
   useEffect(() => {
+    makeMoleVisible();
+  }, []);
+
+  const makeMoleVisible = () => {
     const moleToMakeVisible = Math.ceil(Math.random() * 9);
     setMoles((state) => ({
       ...state,
       [moleToMakeVisible]: true,
     }));
-  }, []);
+  };
+
+  console.log(moles);
 
   const handleVisibleMoleOnClick = useCallback(() => {
     dispatch(hitMole());
     setMoles(initialMoles);
-  }, [dispatch]);
+    makeMoleVisible();
+  }, [dispatch, initialMoles]);
 
-  return <MolesList></MolesList>;
+  return (
+    <MolesList>
+      {Object.entries(moles).map(([key, value]) => (
+        <Mole key={key} isVisible={value} onClick={handleVisibleMoleOnClick} />
+      ))}
+    </MolesList>
+  );
 });
 
 const MolesList = styled.ol``;
