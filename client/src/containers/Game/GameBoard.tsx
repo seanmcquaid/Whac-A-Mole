@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Mole from '../../sharedComponents/app/Game/Mole';
 import { hitMole } from '../../store/game/actions';
-import { molesLeftSelector } from '../../store/game/selectors';
 
 const GameBoard: React.FC = React.memo(() => {
   const dispatch = useDispatch();
@@ -36,8 +35,8 @@ const GameBoard: React.FC = React.memo(() => {
 
   const makeMoleVisible = useCallback(() => {
     const moleToMakeVisible = Math.ceil(Math.random() * 9);
-    setMoles((state) => ({
-      ...state,
+    setMoles(() => ({
+      ...initialMoles,
       [moleToMakeVisible]: true,
     }));
   }, []);
@@ -48,7 +47,6 @@ const GameBoard: React.FC = React.memo(() => {
 
   const handleVisibleMoleOnClick = useCallback(() => {
     dispatch(hitMole());
-    setMoles(initialMoles);
     makeMoleVisible();
   }, [dispatch, initialMoles, makeMoleVisible]);
 
