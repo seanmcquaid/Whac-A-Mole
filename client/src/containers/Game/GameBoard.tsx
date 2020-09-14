@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Mole from '../../sharedComponents/app/Game/Mole';
 import { hitMole } from '../../store/game/actions';
@@ -39,7 +39,7 @@ const GameBoard: React.FC = React.memo(() => {
       ...initialMoles,
       [moleToMakeVisible]: true,
     }));
-  }, []);
+  }, [initialMoles]);
 
   useEffect(() => {
     makeMoleVisible();
@@ -48,7 +48,7 @@ const GameBoard: React.FC = React.memo(() => {
   const handleVisibleMoleOnClick = useCallback(() => {
     dispatch(hitMole());
     makeMoleVisible();
-  }, [dispatch, initialMoles, makeMoleVisible]);
+  }, [dispatch, makeMoleVisible]);
 
   return (
     <MolesList>
