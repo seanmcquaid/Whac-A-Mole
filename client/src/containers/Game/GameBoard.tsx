@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Mole from '../../sharedComponents/app/Game/Mole';
@@ -18,42 +18,46 @@ const setMoleVisible = (moles: MoleStatus[], indexOfMoleVisible: number) => {
 
 const GameBoard: React.FC = React.memo(() => {
   const dispatch = useDispatch();
-  const molesLeft = useSelector(molesLeftSelector);
-
-  const originalMoles: MoleStatus[] = [
-    { isHidden: true },
-    { isHidden: true },
-    { isHidden: true },
-    { isHidden: true },
-    { isHidden: true },
-  ];
-
-  const indexOfMoleVisible = Math.floor(originalMoles.length * Math.random());
-
-  const molesToModify: MoleStatus[] = setMoleVisible(
-    [...originalMoles],
-    indexOfMoleVisible
+  const [moles, setMoles] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+  });
+  const initialMoles = useMemo(
+    () => ({
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false,
+      7: false,
+      8: false,
+      9: false,
+    }),
+    []
   );
+
+  useEffect(() => {
+    const moleToMakeVisible = Math.ceil(Math.random() * 9);
+    setMoles((state) => ({
+      ...state,
+      [moleToMakeVisible]: true,
+    }));
+  }, []);
 
   const handleVisibleMoleOnClick = useCallback(() => {
     dispatch(hitMole());
+    setMoles(initialMoles);
   }, [dispatch]);
 
-  if (molesLeft === 0) {
-    return <div>STOP! You're done</div>;
-  }
-
-  return (
-    <MolesList>
-      {molesToModify.map(({ isHidden }, index) => (
-        <Mole
-          isHidden={isHidden}
-          onClick={handleVisibleMoleOnClick}
-          key={index}
-        />
-      ))}
-    </MolesList>
-  );
+  return <MolesList></MolesList>;
 });
 
 const MolesList = styled.ol``;
