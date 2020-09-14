@@ -20,6 +20,10 @@ public class ScoresService {
     public boolean isScoreInTopTen(int time){
         List<Score> topTenScores = scoresDao.getTopTenScores();
 
+        if(topTenScores.size() == 0){
+            return true;
+        }
+
         AtomicBoolean isScoreInTopTen = new AtomicBoolean(false);
 
         topTenScores.forEach(score -> {
