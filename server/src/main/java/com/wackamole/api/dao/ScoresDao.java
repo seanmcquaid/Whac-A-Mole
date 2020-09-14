@@ -17,7 +17,7 @@ public class ScoresDao {
     }
 
     public List<Score> getTopTenScores(){
-        String sql = "SELECT TOP 10 * FROM Scores ORDER BY score ASC;";
+        String sql = "SELECT * FROM Scores ORDER BY score ASC LIMIT 10;";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             String name = resultSet.getString("name");
             int score = resultSet.getInt("score");
