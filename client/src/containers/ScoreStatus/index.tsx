@@ -17,7 +17,7 @@ const ScoreStatus = () => {
 
     Axios.get(`${REACT_APP_API_URL}/v1/scores/checkTime?score=${score}`, config)
       .then(({ data }) => {
-        console.log(data);
+        setIsScoreInTopTen(data);
       })
       .catch((err) => console.log(err))
       .finally(() => {

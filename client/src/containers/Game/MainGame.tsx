@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import P from '../../sharedComponents/universal/Typography/P';
 import { endGame, incrementTimer } from '../../store/game/actions';
 import {
-  gameActiveSelector,
   molesLeftSelector,
   totalTimeSelector,
 } from '../../store/game/selectors';
