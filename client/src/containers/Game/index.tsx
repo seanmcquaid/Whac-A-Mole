@@ -25,7 +25,11 @@ const Game: React.FC = () => {
         {!gameActive ? (
           <>
             <P>Press Start to Begin the Game</P>
-            <Button onClick={startGameButtonOnClick} name="Start" />
+            <Button
+              onClick={startGameButtonOnClick}
+              name="Start"
+              type="button"
+            />
           </>
         ) : (
           <MainGame />
