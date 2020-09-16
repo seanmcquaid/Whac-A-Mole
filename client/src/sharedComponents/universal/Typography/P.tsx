@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const P: React.FC = React.memo(styled.p``);
+const P = React.memo(styled.p``);
 
 export default P;

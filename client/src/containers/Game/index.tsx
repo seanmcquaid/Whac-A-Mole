@@ -8,7 +8,7 @@ import { startGame } from '../../store/game/actions';
 import { gameActiveSelector } from '../../store/game/selectors';
 import MainGame from './MainGame';
 
-const Game: React.FC = () => {
+const Game = () => {
   const gameActive = useSelector(gameActiveSelector);
   const dispatch = useDispatch();
 

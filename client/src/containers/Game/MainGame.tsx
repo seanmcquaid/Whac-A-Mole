@@ -10,7 +10,7 @@ import {
 } from '../../store/game/selectors';
 import GameBoard from './GameBoard';
 
-const MainGame: React.FC = () => {
+const MainGame = () => {
   const molesLeft = useSelector(molesLeftSelector);
   const totalTime = useSelector(totalTimeSelector);
   const dispatch = useDispatch();
