@@ -19,8 +19,10 @@ public class ScoresService {
 
     public boolean isScoreInTopTen(int time){
         List<Score> topTenScores = scoresDao.getTopTenScores();
+        System.out.println(topTenScores);
+        System.out.println(time);
 
-        if(topTenScores.size() == 0){
+        if(topTenScores.size() == 0 || topTenScores.size() < 10){
             return true;
         }
 
@@ -39,7 +41,11 @@ public class ScoresService {
         return scoresDao.getTopTenScores();
     }
 
-    public Score addScore(Score score){
-        return scoresDao.addScore(score);
+    public void addScore(Score score){
+        scoresDao.addScore(score);
+    }
+
+    public List<Score> getScoreForPlayerName(String playerName){
+        return scoresDao.getScoreForPlayerName(playerName);
     }
 }

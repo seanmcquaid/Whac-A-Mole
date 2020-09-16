@@ -25,10 +25,17 @@ public class ScoresDao {
         });
     }
 
-    public Score addScore(Score score){
+    public void addScore(Score score) {
         String sql = "INSERT INTO Scores (name, score) VALUES (?, ?);";
-        return jdbcTemplate.query(sql, new Object[]{score.getName(), score.getScore()}, (resultSet -> {
-            return new Score(resultSet.getString("name"), resultSet.getInt("score"));
-        }));
+        jdbcTemplate.update(sql, new Object[]{score.getName(), score.getScore()});
+    }
+
+    public List<Score> getScoreForPlayerName(String playerName){
+        String sql = "SELECT * FROM Scores WHERE name=?;";
+        return jdbcTemplate.query(sql, new Object[]{playerName}, (resultSet, i) -> {
+            String name = resultSet.getString("name");
+            int score = resultSet.getInt("score");
+            return new Score(name, score);
+        });
     }
 }

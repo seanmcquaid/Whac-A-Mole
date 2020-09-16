@@ -10,25 +10,27 @@ const AddScoreForm = React.memo(() => {
   const score = useSelector(totalTimeSelector);
   const history = useHistory();
 
-  const addScoreOnSubmit = useCallback((name) => {
-    const { REACT_APP_API_URL } = process.env;
-    const source = Axios.CancelToken.source();
-    const config = {
-      cancelToken: source.token,
-    };
+  const addScoreOnSubmit = useCallback(
+    (name) => {
+      const { REACT_APP_API_URL } = process.env;
+      const source = Axios.CancelToken.source();
+      const config = {
+        cancelToken: source.token,
+      };
 
-    const requestBody = {
-      name,
-      score,
-    };
+      const requestBody = {
+        name,
+        score,
+      };
 
-    Axios.post(`${REACT_APP_API_URL}/v1/scores/addScore`, requestBody, config)
-      .then(() => {
-        history.push('/leaderBoard');
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {});
-  }, []);
+      Axios.post(`${REACT_APP_API_URL}/v1/scores/addScore`, requestBody, config)
+        .then(() => {
+          history.push('/leaderBoard');
+        })
+        .catch((err) => console.log(err));
+    },
+    [history, score]
+  );
 
   return (
     <Formik

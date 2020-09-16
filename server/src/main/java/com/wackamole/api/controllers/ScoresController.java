@@ -27,8 +27,9 @@ public class ScoresController {
     }
 
     @PostMapping(path = "/addScore")
-    public ResponseEntity<Score> addScore(@RequestBody Score score){
-        Score addedScore = scoresService.addScore(score);
+    public ResponseEntity<List<Score>> addScore(@RequestBody Score score){
+        scoresService.addScore(score);
+        List<Score> addedScore = scoresService.getScoreForPlayerName(score.getName());
         return new ResponseEntity<>(addedScore, HttpStatus.OK);
     }
 
