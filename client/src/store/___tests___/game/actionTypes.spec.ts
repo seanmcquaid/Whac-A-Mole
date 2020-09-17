@@ -1,11 +1,19 @@
 import GameActionTypes from '../../game/actionTypes';
 
 describe('GameActionTypes', () => {
-  it('hitMole', () => {});
+  it('hitMole', () => {
+    expect(GameActionTypes.hitMole).toEqual('HIT_MOLE');
+  });
 
-  it('startGame', () => {});
+  it('startGame', () => {
+    expect(GameActionTypes.startGame).toEqual('START_GAME');
+  });
 
-  it('incrementTimer', () => {});
+  it('incrementTimer', () => {
+    expect(GameActionTypes.incrementTimer).toEqual('INCREMENT_TIMER');
+  });
 
-  it('endGame', () => {});
+  it('endGame', () => {
+    expect(GameActionTypes.endGame).toEqual('END_GAME');
+  });
 });
