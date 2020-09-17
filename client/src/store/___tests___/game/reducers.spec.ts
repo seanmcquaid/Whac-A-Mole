@@ -1,13 +1,68 @@
-import gameReducer from '../../game/reducers';
+import gameReducer, { GameState } from '../../game/reducers';
+import GameActionTypes from '../../game/actionTypes';
 
 describe('gameReducer', () => {
-  it('hitMole', () => {});
+  it('hitMole', () => {
+    const initialState: GameState = {
+      molesLeft: 15,
+      totalTime: 0,
+      gameActive: true,
+    };
 
-  it('startGame', () => {});
+    expect(
+      gameReducer(initialState, { type: GameActionTypes.hitMole })
+    ).toEqual({
+      molesLeft: 14,
+      totalTime: 0,
+      gameActive: true,
+    });
+  });
 
-  it('incrementTimer', () => {});
+  it('startGame', () => {
+    const initialState: GameState = {
+      molesLeft: 15,
+      totalTime: 0,
+      gameActive: false,
+    };
 
-  it('endGame', () => {});
+    expect(
+      gameReducer(initialState, { type: GameActionTypes.startGame })
+    ).toEqual({
+      molesLeft: 15,
+      totalTime: 0,
+      gameActive: true,
+    });
+  });
 
-  it('default', () => {});
+  it('incrementTimer', () => {
+    const initialState: GameState = {
+      molesLeft: 15,
+      totalTime: 0,
+      gameActive: true,
+    };
+
+    expect(
+      gameReducer(initialState, { type: GameActionTypes.incrementTimer })
+    ).toEqual({
+      molesLeft: 15,
+      totalTime: 1000,
+      gameActive: true,
+    });
+  });
+
+  it('endGame', () => {
+    const initialState: GameState = {
+      molesLeft: 15,
+      totalTime: 0,
+      gameActive: true,
+    };
+
+    expect(
+      gameReducer(initialState, { type: GameActionTypes.endGame })
+    ).toEqual({
+      molesLeft: 15,
+      totalTime: 0,
+      gameActive: false,
+    });
+  });
 });
