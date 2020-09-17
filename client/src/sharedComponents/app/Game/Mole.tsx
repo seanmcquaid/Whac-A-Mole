@@ -8,9 +8,11 @@ type MoleProps = {
 
 const Mole: React.FC<MoleProps> = React.memo(({ isVisible, onClick }) =>
   isVisible ? (
-    <MoleContainer onClick={onClick}>Visible</MoleContainer>
+    <MoleContainer onClick={onClick} data-testid="visibleMole">
+      Visible
+    </MoleContainer>
   ) : (
-    <MoleContainer>Hidden</MoleContainer>
+    <MoleContainer data-testid="hiddenMole">Hidden</MoleContainer>
   )
 );
 
