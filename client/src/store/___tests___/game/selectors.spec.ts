@@ -1,3 +1,4 @@
+import { globalState } from '../..';
 import {
   gameStateSelector,
   molesLeftSelector,
@@ -6,11 +7,55 @@ import {
 } from '../../game/selectors';
 
 describe('gameSelectors', () => {
-  it('gameStateSelector', () => {});
+  it('gameStateSelector', () => {
+    const initialState: globalState = {
+      game: {
+        molesLeft: 15,
+        gameActive: false,
+        totalTime: 0,
+      },
+    };
 
-  it('molesLeftSelector', () => {});
+    expect(gameStateSelector(initialState)).toEqual({
+      molesLeft: 15,
+      gameActive: false,
+      totalTime: 0,
+    });
+  });
 
-  it('gameActiveSelector', () => {});
+  it('molesLeftSelector', () => {
+    const initialState: globalState = {
+      game: {
+        molesLeft: 15,
+        gameActive: false,
+        totalTime: 0,
+      },
+    };
 
-  it('totalTimeSelector', () => {});
+    expect(molesLeftSelector(initialState)).toEqual(15);
+  });
+
+  it('gameActiveSelector', () => {
+    const initialState: globalState = {
+      game: {
+        molesLeft: 15,
+        gameActive: false,
+        totalTime: 0,
+      },
+    };
+
+    expect(gameActiveSelector(initialState)).toEqual(false);
+  });
+
+  it('totalTimeSelector', () => {
+    const initialState: globalState = {
+      game: {
+        molesLeft: 15,
+        gameActive: false,
+        totalTime: 0,
+      },
+    };
+
+    expect(totalTimeSelector(initialState)).toEqual(0);
+  });
 });
