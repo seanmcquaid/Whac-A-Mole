@@ -61,7 +61,9 @@ describe('<Game/>', () => {
     fireEvent.click(screen.getByTestId('StartButton'));
 
     await waitFor(() =>
-      expect(screen.getByText('Total Time : 1000')).toBeInTheDocument()
+      expect(screen.getByTestId('timeLeft').innerHTML).toEqual(
+        'Total Time : 1000'
+      )
     );
   });
 
@@ -149,7 +151,7 @@ describe('<Game/>', () => {
     );
 
     jest.spyOn(Axios, 'get').mockResolvedValueOnce({
-      data: false,
+      data: true,
     });
 
     fireEvent.click(screen.getByTestId('StartButton'));
