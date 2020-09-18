@@ -33,8 +33,8 @@ const MainGame = () => {
 
   return (
     <GameContainer>
-      <P>Total Time : {totalTime}</P>
-      <P>Moles Left : {molesLeft}</P>
+      <P data-testid="timeLeft">Total Time : {totalTime}</P>
+      <P data-testid="molesLeft">Moles Left : {molesLeft}</P>
       <GameBoard />
     </GameContainer>
   );
