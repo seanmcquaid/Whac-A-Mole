@@ -128,5 +128,36 @@ describe('<Game/>', () => {
     );
   });
 
-  it('User is prompted to enter their time if it is in the top 10', () => {});
+  it('User is prompted to enter their time if it is in the top 10', async () => {
+    const initialState: globalState = {
+      game: {
+        molesLeft: 1,
+        gameActive: false,
+        totalTime: 0,
+      },
+    };
+
+    const initialRoute = '/';
+
+    render(
+      <MockStore initialState={initialState}>
+        <MockRouter initialRoute={initialRoute}>
+          <Route exact path="/" component={Game} />
+          <Route exact path="/scoreStatus" component={ScoreStatus} />
+        </MockRouter>
+      </MockStore>
+    );
+
+    jest.spyOn(Axios, 'get').mockResolvedValueOnce({
+      data: false,
+    });
+
+    fireEvent.click(screen.getByTestId('StartButton'));
+
+    fireEvent.click(screen.getByTestId('visibleMole'));
+
+    await waitFor(() =>
+      expect(screen.getByText('Score Status : In Top Ten!')).toBeInTheDocument()
+    );
+  });
 });
