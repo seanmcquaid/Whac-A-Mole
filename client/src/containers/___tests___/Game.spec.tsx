@@ -1,8 +1,35 @@
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
+import { Route } from 'react-router-dom';
+import { globalState } from '../../store';
+import MockRouter from '../../testUtils/MockRouter';
+import MockStore from '../../testUtils/MockStore';
 import Game from '../Game';
 
 describe('<Game/>', () => {
-  it('Can click start button to start the game', () => {});
+  it('Can click start button to start the game', () => {
+    const initialState: globalState = {
+      game: {
+        molesLeft: 15,
+        gameActive: false,
+        totalTime: 0,
+      },
+    };
+
+    const initialRoute = '/';
+
+    render(
+      <MockStore initialState={initialState}>
+        <MockRouter initialRoute={initialRoute}>
+          <Route exact path="/" component={Game} />
+        </MockRouter>
+      </MockStore>
+    );
+
+    fireEvent.click(screen.getByTestId('StartButton'));
+
+    expect(screen.getByText('Moles Left : 15')).toBeInTheDocument();
+  });
 
   it('Timer starts when you hit start', () => {});
 
