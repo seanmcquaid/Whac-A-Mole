@@ -1,25 +1,26 @@
+import { AnyAction, Dispatch } from 'redux';
 import store from '../index';
 import GameActionTypes from './actionTypes';
 
-export const hitMole = () => (dispatch: typeof store.dispatch) => {
+export const hitMole = () => (dispatch: Dispatch<AnyAction>) => {
   return dispatch({
     type: GameActionTypes.hitMole,
   });
 };
 
-export const startGame = () => (dispatch: typeof store.dispatch) => {
+export const startGame = () => (dispatch: Dispatch<AnyAction>) => {
   return dispatch({
     type: GameActionTypes.startGame,
   });
 };
 
-export const incrementTimer = () => (dispatch: typeof store.dispatch) => {
+export const incrementTimer = () => (dispatch: Dispatch<AnyAction>) => {
   return dispatch({
     type: GameActionTypes.incrementTimer,
   });
 };
 
-export const endGame = () => (dispatch: typeof store.dispatch) => {
+export const endGame = () => (dispatch: Dispatch<AnyAction>) => {
   return dispatch({
     type: GameActionTypes.endGame,
   });
