@@ -38,7 +38,12 @@ const AddScoreForm = React.memo(() => {
       onSubmit={({ name }) => addScoreOnSubmit(name)}
     >
       <Form>
-        <Field name="name" type="text" placeholder="Enter name here" />
+        <Field
+          name="name"
+          type="text"
+          placeholder="Enter name here"
+          data-testid="nameTextInput"
+        />
         <Button type="submit" name="Submit" />
       </Form>
     </Formik>
