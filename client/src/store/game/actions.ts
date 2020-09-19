@@ -1,5 +1,4 @@
 import { AnyAction, Dispatch } from 'redux';
-import store from '../index';
 import GameActionTypes from './actionTypes';
 
 export const hitMole = () => (dispatch: Dispatch<AnyAction>) => {

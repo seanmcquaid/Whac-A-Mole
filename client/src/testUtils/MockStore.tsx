@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { configureStore, globalState } from '../store';
+import { configureStore, GlobalState } from '../store';
 
 type MockStoreProps = {
-  initialState: globalState;
+  initialState: GlobalState;
 };
 
 const MockStore: React.FC<MockStoreProps> = ({ initialState, children }) => {

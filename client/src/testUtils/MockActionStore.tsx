@@ -1,14 +1,14 @@
 import { AnyAction } from 'redux';
 import createMockStore from 'redux-mock-store';
 import thunk, { ThunkDispatch } from 'redux-thunk';
-import { globalState } from '../store';
+import { GlobalState } from '../store';
 
-type DispatchExts = ThunkDispatch<globalState, void, AnyAction>;
+type DispatchExts = ThunkDispatch<GlobalState, void, AnyAction>;
 
 const middleware = [thunk];
-const mockActionStore = createMockStore<globalState, DispatchExts>(middleware);
+const mockActionStore = createMockStore<GlobalState, DispatchExts>(middleware);
 
-const createMockActionStore = (initialState: globalState) =>
+const createMockActionStore = (initialState: GlobalState) =>
   mockActionStore(initialState);
 
 export default createMockActionStore;

@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
-import { globalState } from '../index';
+import { GlobalState } from '../index';
 import { GameState } from './reducers';
 
-export const gameStateSelector = (state: globalState) => state.game;
+export const gameStateSelector = (state: GlobalState) => state.game;
 
 export const molesLeftSelector = createSelector(
   gameStateSelector,
