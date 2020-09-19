@@ -39,7 +39,35 @@ describe('gameActions', () => {
     expect(store.getActions()).toEqual([{ type: GameActionTypes.startGame }]);
   });
 
-  it('incrementTimer', () => {});
+  it('incrementTimer', () => {
+    const initialState: GlobalState = {
+      game: {
+        molesLeft: 15,
+        totalTime: 0,
+        gameActive: true,
+      },
+    };
+    const store = createMockActionStore(initialState);
 
-  it('endGame', () => {});
+    store.dispatch(incrementTimer());
+
+    expect(store.getActions()).toEqual([
+      { type: GameActionTypes.incrementTimer },
+    ]);
+  });
+
+  it('endGame', () => {
+    const initialState: GlobalState = {
+      game: {
+        molesLeft: 15,
+        totalTime: 0,
+        gameActive: true,
+      },
+    };
+    const store = createMockActionStore(initialState);
+
+    store.dispatch(endGame());
+
+    expect(store.getActions()).toEqual([{ type: GameActionTypes.endGame }]);
+  });
 });
