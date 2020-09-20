@@ -1,6 +1,6 @@
 # Whac-A-Mole
 
-I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
+This is meant to be a basic arcade experience recreation of the classic game from my childhood, Whac-A-Mole!
 
 ## Architecture
 
