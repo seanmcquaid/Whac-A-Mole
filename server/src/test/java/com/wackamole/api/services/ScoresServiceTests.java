@@ -94,7 +94,9 @@ public class ScoresServiceTests {
             scoresDao.addScore(score);
         });
 
+        List<Score> returnedTopTenScores = scoresService.getTopTenScores();
 
+        Assert.assertEquals(10, returnedTopTenScores.size());
 
         topTenScores.forEach(score -> {
             scoresDao.deleteScore(score);
@@ -102,12 +104,14 @@ public class ScoresServiceTests {
     }
 
     @Test
-    public void addScoreTest(){
-
-    }
-
-    @Test
     public void getScoreForPlayerNameTest(){
+        scoresDao.addScore(scoreForTest);
 
+        List<Score> playerScore = scoresService.getScoreForPlayerName(scoreForTest.getName());
+
+        Assert.assertEquals(1, playerScore.size());
+        Assert.assertEquals(scoreForTest, playerScore.get(0));
+
+        scoresDao.deleteScore(scoreForTest);
     }
 }
