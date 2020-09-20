@@ -1,8 +1,25 @@
-// keep media queries, fonts, colors, etc here
+export default class Constants {
+  static get headerFontFamily(): string {
+    return 'Roboto, Sans-Serif';
+  }
 
-export const headerFontFamily = 'Roboto, Sans-Serif';
-export const paragraphFontFamily = 'Lora, Serif';
-export const backGroundColor = '';
-export const fontColor = '';
-export const phoneSize = '';
-export const desktopSize = '';
+  static get paragraphFontFamily(): string {
+    return 'Lora, Serif';
+  }
+
+  static get backgroundColor(): string {
+    return '';
+  }
+
+  static get fontColor(): string {
+    return '';
+  }
+
+  static get phoneSize(): string {
+    return '';
+  }
+
+  static get desktopSize(): string {
+    return '';
+  }
+}

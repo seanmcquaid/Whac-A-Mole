@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { paragraphFontFamily } from '../../constants';
+import Constants from '../../constants';
 
 type ButtonProps = {
   onClick?: () => void;
@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = React.memo(({ onClick, name, type }) => (
 ));
 
 const StyledButton = styled.button`
-  font-family: ${paragraphFontFamily};
+  font-family: ${Constants.paragraphFontFamily};
   padding: 0.5rem;
   margin: 0.5rem;
 `;

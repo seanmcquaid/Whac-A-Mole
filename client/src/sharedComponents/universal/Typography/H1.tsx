@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { headerFontFamily } from '../../../constants';
+import Constants from '../../../constants';
 
 const H1 = React.memo(styled.h1`
-  font-family: ${headerFontFamily};
+  font-family: ${Constants.headerFontFamily};
   font-size: 2rem;
 `);
 
