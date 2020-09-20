@@ -5,6 +5,8 @@ import Button from '../../sharedComponents/universal/Button';
 import { useSelector } from 'react-redux';
 import { totalTimeSelector } from '../../store/game/selectors';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import Constants from '../../constants';
 
 const AddScoreForm = React.memo(() => {
   const score = useSelector(totalTimeSelector);
@@ -37,17 +39,31 @@ const AddScoreForm = React.memo(() => {
       initialValues={{ name: '' }}
       onSubmit={({ name }) => addScoreOnSubmit(name)}
     >
-      <Form>
-        <Field
+      <StyledForm>
+        <StyledTextField
           name="name"
           type="text"
           placeholder="Enter name here"
           data-testid="nameTextInput"
         />
         <Button type="submit" name="Submit" />
-      </Form>
+      </StyledForm>
     </Formik>
   );
 });
+
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledTextField = styled(Field)`
+  font-family: ${Constants.paragraphFontFamily};
+  padding: 0.5rem;
+  border-radius: 10px;
+  outline: none;
+`;
 
 export default AddScoreForm;

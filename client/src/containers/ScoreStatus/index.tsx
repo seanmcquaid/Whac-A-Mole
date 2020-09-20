@@ -67,6 +67,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const Header = styled.header``;

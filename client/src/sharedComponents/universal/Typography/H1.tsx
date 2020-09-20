@@ -4,7 +4,7 @@ import Constants from '../../../constants';
 
 const H1 = React.memo(styled.h1`
   font-family: ${Constants.headerFontFamily};
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: ${Constants.headerFontColor};
 `);
 
