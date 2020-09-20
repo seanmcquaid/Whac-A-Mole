@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ReactComponent as VisibleMole } from '../../../assets/mole.svg';
+import { ReactComponent as HiddenMole } from '../../../assets/dirt.svg';
 
 type MoleProps = {
   isVisible: boolean;
@@ -9,16 +11,29 @@ type MoleProps = {
 const Mole: React.FC<MoleProps> = React.memo(({ isVisible, onClick }) =>
   isVisible ? (
     <MoleContainer onClick={onClick} data-testid="visibleMole">
-      Visible
+      <StyledVisibleMole />
     </MoleContainer>
   ) : (
-    <MoleContainer data-testid="hiddenMole">Hidden</MoleContainer>
+    <MoleContainer data-testid="hiddenMole">
+      <StyledHiddenMole />
+    </MoleContainer>
   )
 );
 
 const MoleContainer = styled.li`
-  margin: 1rem;
+  padding: 0.5rem;
   list-style: none;
+  width: 100%;
+`;
+
+const StyledVisibleMole = styled(VisibleMole)`
+  height: 80px;
+  width: 80px;
+`;
+
+const StyledHiddenMole = styled(HiddenMole)`
+  height: 80px;
+  width: 80px;
 `;
 
 export default Mole;
