@@ -38,4 +38,9 @@ public class ScoresDao {
             return new Score(name, score);
         });
     }
+
+    public void deleteScore(Score score){
+        String sql = "DELETE FROM Scores WHERE name=?;";
+        jdbcTemplate.update(sql, new Object[]{score.getName()});
+    }
 }

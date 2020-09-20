@@ -1,23 +1,54 @@
 package com.wackamole.api.dao;
 
+import com.wackamole.api.models.Score;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 public class ScoresDaoTests {
 
-    @Test
-    public void getTopTenScoresTest(){
+    @Autowired
+    ScoresDao scoresDao;
 
+    private final Score scoreForTest = new Score("User 1", 3000);
+
+    public void addScoreForTest(){
+        scoresDao.addScore(scoreForTest);
+    }
+
+    public void deleteScoreForTest(){
+        scoresDao.deleteScore(scoreForTest);
     }
 
     @Test
-    public void addScore(){
+    public void getTopTenScoresTest(){
+        addScoreForTest();
+        List<Score> topTenScores = scoresDao.getTopTenScores();
+        Assert.assertEquals(1, topTenScores.size());
+        Assert.assertEquals(scoreForTest, topTenScores.get(0));
+        deleteScoreForTest();
+    }
 
+
+    @Test
+    public void addScore(){
+        scoresDao.addScore(scoreForTest);
+        List<Score> playerScore = scoresDao.getScoreForPlayerName(scoreForTest.getName());
+        Assert.assertEquals(1, playerScore.size());
+        Assert.assertEquals(scoreForTest, playerScore.get(0));
+        deleteScoreForTest();
     }
 
     @Test
     public void getScoreForPlayerName(){
-
+        scoresDao.addScore(scoreForTest);
+        List<Score> playerScore = scoresDao.getScoreForPlayerName(scoreForTest.getName());
+        Assert.assertEquals(1, playerScore.size());
+        Assert.assertEquals(scoreForTest, playerScore.get(0));
+        deleteScoreForTest();
     }
 }
