@@ -31,17 +31,10 @@ public class ScoresDaoTests {
         Assert.assertEquals(1, topTenScores.size());
         Assert.assertEquals(scoreForTest, topTenScores.get(0));
         deleteScoreForTest();
+        List<Score> topTenScoresAfterDeletion = scoresDao.getTopTenScores();
+        Assert.assertEquals(0, topTenScoresAfterDeletion.size());
     }
 
-
-    @Test
-    public void addScore(){
-        scoresDao.addScore(scoreForTest);
-        List<Score> playerScore = scoresDao.getScoreForPlayerName(scoreForTest.getName());
-        Assert.assertEquals(1, playerScore.size());
-        Assert.assertEquals(scoreForTest, playerScore.get(0));
-        deleteScoreForTest();
-    }
 
     @Test
     public void getScoreForPlayerName(){
@@ -50,5 +43,7 @@ public class ScoresDaoTests {
         Assert.assertEquals(1, playerScore.size());
         Assert.assertEquals(scoreForTest, playerScore.get(0));
         deleteScoreForTest();
+        List<Score> topTenScoresAfterDeletion = scoresDao.getTopTenScores();
+        Assert.assertEquals(0, topTenScoresAfterDeletion.size());
     }
 }
