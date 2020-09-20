@@ -37,7 +37,7 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 2. When you hit start, the timer starts
 3. Every time you hit a mole, another will appear
 4. The game ends when the user hits 15 moles
-5. If the user is in the top 10 times after completing their round, then they get prompted to enter their user name
+5. The user is redirected to the score status page when the game is complete
 
 ### Score Status Page
 
