@@ -16,7 +16,11 @@ export default class Constants {
   }
 
   static get buttonColor(): string {
-    return '#43658b';
+    return '#ffa372';
+  }
+
+  static get buttonTextColor(): string {
+    return 'black';
   }
 
   static get headerFontColor(): string {
