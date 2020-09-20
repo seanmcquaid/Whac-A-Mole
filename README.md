@@ -14,11 +14,10 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 6. Redux Thunk
 7. React Testing Library
 8. Jest
-9. Cypress
-10. React Router Dom
-11. React Redux
-12. Reselect
-13. Formik
+9. React Router Dom
+10. React Redux
+11. Reselect
+12. Formik
 
 ### Back End
 
@@ -27,9 +26,8 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 3. Flyway
 4. PostgreSQL
 5. JUnit
-6. Serenity BDD ? - Will look into whether I want to use this or not for integration testing
 
-## Front End Pages
+## Pages
 
 ### Home Page
 
@@ -41,22 +39,15 @@ I will be recreating the classic arcade game from my childhood, Whac-A-Mole!
 4. The game ends when the user hits 15 moles
 5. If the user is in the top 10 times after completing their round, then they get prompted to enter their user name
 
+### Score Status Page
+
+#### Requirements
+
+1. Will send user's score to the back end to check if they qualify for the top 10
+2. If they qualify for the top 10, they are prompted to enter their name in - otherwise they will receive an apology message
+
 ### Leaderboard Page
 
 #### Requirements
 
 1. Displays the top 10 times
-
-## Back End Routes
-
-### GET - /leaderboard
-
-Should return top 10 times
-
-### POST - /addTime
-
-Allows users
-
-### GET - /checkTime
-
-Checks if time is in the top 10 times
