@@ -7,12 +7,24 @@ export default class Constants {
     return 'Lora, Serif';
   }
 
-  static get backgroundColor(): string {
-    return '';
+  static get pageBackgroundColor(): string {
+    return '#4e89ae';
   }
 
-  static get fontColor(): string {
-    return '';
+  static get gameBoardBackgroundColor(): string {
+    return '#ed6663';
+  }
+
+  static get buttonColor(): string {
+    return '#43658b';
+  }
+
+  static get headerFontColor(): string {
+    return 'white';
+  }
+
+  static get paragraphFontColor(): string {
+    return 'white';
   }
 
   static get phoneSize(): string {

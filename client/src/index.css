@@ -5,11 +5,5 @@ body,
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #4e89ae;
 }
-
-/* Fonts - Roboto for header and Lora for Paragraph text */
-
-/* Font-Family: 'Roboto', Sans-Serif;
-Font-Size: 48px;
-Font-Family: 'Lora', Serif;
-Font-Size: 14px; */

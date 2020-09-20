@@ -16,8 +16,9 @@ const Button: React.FC<ButtonProps> = React.memo(({ onClick, name, type }) => (
 
 const StyledButton = styled.button`
   font-family: ${Constants.paragraphFontFamily};
-  padding: 0.5rem;
-  margin: 0.5rem;
+  padding: 0.75rem;
+  margin: 0.75rem;
+  width: 8rem;
 `;
 
 export default Button;
