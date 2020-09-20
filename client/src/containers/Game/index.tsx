@@ -44,6 +44,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const Header = styled.header``;
@@ -53,6 +54,7 @@ const MainContent = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 export default Game;

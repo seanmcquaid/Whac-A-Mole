@@ -16,6 +16,9 @@ const Mole: React.FC<MoleProps> = React.memo(({ isVisible, onClick }) =>
   )
 );
 
-const MoleContainer = styled.li``;
+const MoleContainer = styled.li`
+  margin: 1rem;
+  list-style: none;
+`;
 
 export default Mole;

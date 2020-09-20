@@ -59,6 +59,12 @@ const GameBoard: React.FC = React.memo(() => {
   );
 });
 
-const MolesList = styled.ol``;
+const MolesList = styled.ol`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+`;
 
 export default GameBoard;

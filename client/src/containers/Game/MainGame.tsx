@@ -40,6 +40,12 @@ const MainGame = () => {
   );
 };
 
-const GameContainer = styled.div``;
+const GameContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default MainGame;
